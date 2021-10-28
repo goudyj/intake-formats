@@ -1,8 +1,12 @@
 {
-    "fortiproxy": [
+    "fortiproxy custom": [
       {
         "value": "Traffic allowed between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -16,7 +20,11 @@
       },
       {
         "value": "Traffic allowed between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -33,7 +41,11 @@
       },
       {
         "value": "Traffic allowed for {user.name} between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -50,7 +62,11 @@
       },
       {
         "value": "Traffic allowed for {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -70,7 +86,11 @@
       },
       {
         "value": "Traffic denied between {source.ip}:{source.port} and {url.full}. Reason : {msg}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "was denied a connection to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -88,7 +108,11 @@
 
       {
         "value": "Application {fortinet.app} allowed between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -102,7 +126,11 @@
       },
       {
         "value": "Application {fortinet.app} allowed between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -119,7 +147,11 @@
       },
       {
         "value": "Application {fortinet.app} allowed for user {user.name} between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -136,7 +168,11 @@
       },
       {
         "value": "Application {fortinet.app} allowed for user {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -156,7 +192,11 @@
       },
             {
         "value": "Application {fortinet.app} allowed between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -170,7 +210,11 @@
       },
       {
         "value": "Application {fortinet.app} allowed between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -183,48 +227,15 @@
           },
            {
             "field": "url.full"
-        }]
-      },
-      {
-        "value": "Application {fortinet.app} allowed for user {user.name} between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
-        "conditions": [{
-            "field": "event.kind",
-            "value": "utm"
-          },{
-            "field": "event.category",
-            "value": "app-ctrl"
-          }, {
-            "field": "action.name",
-            "value": "pass"
-          },
-        {
-            "field": "user.name"
-        }]
-      },
-      {
-        "value": "Application {fortinet.app} allowed for user {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
-        "conditions": [{
-            "field": "event.kind",
-            "value": "utm"
-          },{
-            "field": "event.category",
-            "value": "app-ctrl"
-          }, {
-            "field": "action.name",
-            "value": "pass"
-          },
-           {
-            "field": "url.full"
-        },
-        {
-            "field": "user.name"
         }]
       },
       {
         "value": "Application {fortinet.app} blocked between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "was denied a connection to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -238,7 +249,11 @@
       },
       {
         "value": "Application {fortinet.app} blocked between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "was denied a connection to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -255,7 +270,11 @@
       },
       {
         "value": "Application {fortinet.app} blocked for user {user.name} between {source.ip}:{source.port} and {destination.ip}:{destination.port}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "destination.ip",
+          "type": "was denied a connection to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -272,7 +291,11 @@
       },
       {
         "value": "Application {fortinet.app} denied for user {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "was denied a connection to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -292,7 +315,11 @@
       },
       {
         "value": "Web traffic allowed between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -309,7 +336,11 @@
       },
       {
         "value": "Web traffic allowed for {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -329,7 +360,11 @@
       },
       {
         "value": "Web traffic allowed between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -343,7 +378,11 @@
       },
       {
         "value": "Web traffic allowed for user {user.name} between {source.ip}:{source.port} and {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "traffic"
@@ -360,7 +399,11 @@
       },
       {
         "value": "Data Loss Preventation {action.name} : {source.ip} accessed to {url.full}",
-        "relationships": [],
+        "relationships": [{
+          "source": "source.ip",
+          "target": "url.full",
+          "type": "connected to"
+        }],
         "conditions": [{
             "field": "event.kind",
             "value": "utm"
@@ -374,7 +417,11 @@
     },
         {
             "value": "Data Loss Preventation {action.name} : {source.ip} accessed to {destination.ip}",
-            "relationships": [],
+            "relationships": [{
+              "source": "source.ip",
+              "target": "url.full",
+              "type": "connected to"
+            }],
             "conditions": [{
                 "field": "event.kind",
                 "value": "utm"
